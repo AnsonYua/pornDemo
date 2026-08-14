@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root { --ink: #0c0e0a; --cream: #fff5df; --amber: #eab76a; }
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--ink); }
+body { color: var(--cream); font-family: Arial, Helvetica, sans-serif; }
+button { font: inherit; }
+.game-shell { position: fixed; inset: 0; min-height: 100svh; overflow: hidden; background: #11150f; }
+.game-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #11150f; }
+.video-grade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(3,6,2,.52) 0%, transparent 28%, transparent 50%, rgba(3,5,2,.72) 100%), radial-gradient(circle at center, transparent 30%, rgba(4,6,3,.45) 100%); }
+.phaser-layer { position: absolute; inset: 0; z-index: 3; pointer-events: auto; }
+.phaser-layer canvas { display: block; }
+.top-controls { position: fixed; z-index: 5; top: max(20px, env(safe-area-inset-top)); left: 24px; right: 24px; display: flex; justify-content: flex-end; align-items: center; pointer-events: none; }
+.live-mark { display: none; font: 700 10px/1 monospace; letter-spacing: 2px; color: rgba(255,245,223,.7); }
+.live-mark i { display: inline-block; width: 6px; height: 6px; margin-right: 7px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 12px var(--amber); }
+.icon-button { pointer-events: auto; border: 1px solid rgba(255,245,223,.36); border-radius: 999px; padding: 10px 13px; color: var(--cream); background: rgba(6,8,5,.42); backdrop-filter: blur(10px); font: 700 9px/1 monospace; letter-spacing: 1.5px; }
+.start-screen { position: absolute; z-index: 8; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px; text-align: center; background: radial-gradient(circle at 50% 38%, rgba(30,42,22,.18), rgba(5,7,4,.78) 76%); }
+.eyebrow { margin: 0 0 14px; color: var(--amber); font: 700 10px/1 monospace; letter-spacing: 3px; }
+.start-screen h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(54px, 13vw, 116px); line-height: .9; letter-spacing: -.055em; text-shadow: 0 8px 38px #000; }
+.intro-copy { max-width: 420px; margin: 25px auto 30px; color: rgba(255,245,223,.78); font: 400 clamp(14px, 3vw, 17px)/1.6 Georgia, serif; }
+.start-button { min-width: min(310px, 86vw); display: flex; align-items: center; justify-content: space-between; gap: 34px; border: 1px solid var(--amber); padding: 17px 20px; background: rgba(9,11,8,.84); color: var(--cream); cursor: pointer; transition: .2s ease; }
+.start-button:hover { background: var(--amber); color: #171209; }
+.start-button span { font: 700 11px/1 monospace; letter-spacing: 2px; }
+.start-button b { font-size: 22px; font-weight: 400; }
+.tap-note { margin: 13px 0 0; color: rgba(255,245,223,.45); font: 10px/1.4 monospace; }
+.resume-button { position: fixed; z-index: 12; left: 50%; bottom: max(34px, env(safe-area-inset-bottom)); transform: translateX(-50%); border: 1px solid var(--amber); padding: 14px 20px; background: rgba(8,10,7,.92); color: var(--cream); font: 700 11px/1 monospace; letter-spacing: 1px; }
+.credit { position: fixed; z-index: 4; left: 22px; bottom: max(12px, env(safe-area-inset-bottom)); color: rgba(255,255,255,.35); font: 8px/1.2 monospace; pointer-events: none; }
+@media (min-width: 700px) { .top-controls { left: 28px; } .live-mark { display: inline-flex; align-items: center; margin-right: auto; } .credit { font-size: 9px; } }
+@media (prefers-reduced-motion: reduce) { .start-button { transition: none; } }
