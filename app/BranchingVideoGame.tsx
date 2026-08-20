@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 type SceneId = "intro" | "meadow" | "forest";
 
 const scenes: Record<SceneId, { src: string; chapter: string }> = {
-  intro: { src: "/video/intro.mp4", chapter: "THE CROSSROADS" },
+  intro: { src: "/video/intro.mp4", chapter: "外賣奇遇記" },
   meadow: { src: "/video/meadow.mp4", chapter: "THE OPEN PATH" },
   forest: { src: "/video/forest.mp4", chapter: "THE HIDDEN PATH" },
 };
@@ -296,9 +296,9 @@ export default function BranchingVideoGame() {
 
       {!started && (
         <section className="start-screen">
-          <p className="eyebrow">A PHASER 3 VIDEO EXPERIENCE</p>
+          <p className="eyebrow"></p>
           <h1>WILDPATH</h1>
-          <p className="intro-copy">One trail. Two instincts. Your choice changes what plays next.</p>
+          <p className="intro-copy">外賣仔奇遇記</p>
           <button className="start-button" onClick={startGame}>
             <span>BEGIN WITH SOUND</span>
             <b>→</b>
