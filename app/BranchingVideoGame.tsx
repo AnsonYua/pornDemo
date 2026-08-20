@@ -146,14 +146,18 @@ export default function BranchingVideoGame() {
           const totalWidth = compact ? cardWidth : cardWidth * 2 + gap;
           const startX = (width - totalWidth) / 2;
           const y = compact ? height - 218 : height - 148;
+          const promptWidth = compact ? width - 48 : Math.min(totalWidth, 680);
 
-          const prompt = this.add.text(width / 2, y - 38, "雖然你按左門鐘，女戶主依然係屋裡面搞野唔出黎拎，你好大機會因為咁而比平台扣錢，你會點做？", {
+          const prompt = this.add.text(width / 2, y - 18, "雖然你按左門鐘，女戶主依然係屋裡面搞野唔出黎拎，你好大機會因為咁而比平台扣錢，你會點做？", {
             fontFamily: "Arial, sans-serif",
             fontStyle: "bold",
-            fontSize: compact ? "13px" : "14px",
+            fontSize: compact ? "19px" : "22px",
             color: "#fff5df",
-            letterSpacing: 3,
-          }).setOrigin(0.5).setShadow(0, 2, "#000000", 6).setDepth(10);
+            align: "center",
+            lineSpacing: compact ? 7 : 8,
+            letterSpacing: 1,
+            wordWrap: { width: promptWidth, useAdvancedWrap: true },
+          }).setOrigin(0.5, 1).setShadow(0, 2, "#000000", 6).setDepth(10);
           this.choiceObjects.push(prompt);
 
           options.forEach((option, index) => {
