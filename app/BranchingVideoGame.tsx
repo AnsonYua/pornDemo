@@ -147,7 +147,7 @@ export default function BranchingVideoGame() {
           const startX = (width - totalWidth) / 2;
           const y = compact ? height - 218 : height - 148;
 
-          const prompt = this.add.text(width / 2, y - 38, "", {
+          const prompt = this.add.text(width / 2, y - 38, "雖然你按左門鐘，女戶主依然係屋裡面搞野唔出黎拎，你好大機會因為咁而比平台扣錢，你會點做？", {
             fontFamily: "Arial, sans-serif",
             fontStyle: "bold",
             fontSize: compact ? "13px" : "14px",
@@ -234,13 +234,14 @@ export default function BranchingVideoGame() {
   const onTimeUpdate = () => {
     const video = videoRef.current;
     if (!video || !started || !Number.isFinite(video.duration)) return;
-    if (video.duration - video.currentTime > 2.7 || shownForRef.current === sceneId) return;
+    const choiceTime = sceneId === "intro" ? 16.5 : video.duration - 2.7;
+    if (video.currentTime < choiceTime || shownForRef.current === sceneId) return;
     shownForRef.current = sceneId;
     setChoicesVisible(true);
     const options = sceneId === "intro"
       ? [
           { id: "meadow", label: "將女戶主的呻吟聲錄底", hint: "" },
-          { id: "forest", label: "安靜怕羞地等女戶主出來", hint: "" },
+          { id: "forest", label: "安靜怕羞地等女戶主出來到", hint: "" },
         ]
       : [
           { id: "restart", label: "Replay this path", hint: "Look for another clue" },
