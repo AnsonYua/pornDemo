@@ -301,8 +301,8 @@ export default function BranchingVideoGame() {
       {!started && (
         <section className="start-screen">
           <p className="eyebrow"></p>
-          <h1>WILDPATH</h1>
-          <p className="intro-copy">外賣仔奇遇記</p>
+          <h1>外賣仔奇遇記</h1>
+          <p className="intro-copy"></p>
           <button className="start-button" onClick={startGame}>
             <span>BEGIN WITH SOUND</span>
             <b>→</b>
