@@ -270,7 +270,6 @@ export default function BranchingVideoGame() {
         onEnded={onTimeUpdate}
         aria-label="Interactive story video"
       />
-      <div className="video-grade" aria-hidden="true" />
       <div ref={mountRef} className="phaser-layer" aria-label="Game choices" />
 
       <div className="top-controls">
