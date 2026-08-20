@@ -147,7 +147,7 @@ export default function BranchingVideoGame() {
           const startX = (width - totalWidth) / 2;
           const y = compact ? height - 218 : height - 148;
 
-          const prompt = this.add.text(width / 2, y - 38, "WHAT DO YOU DO?", {
+          const prompt = this.add.text(width / 2, y - 38, "", {
             fontFamily: "Arial, sans-serif",
             fontStyle: "bold",
             fontSize: compact ? "13px" : "14px",
@@ -239,8 +239,8 @@ export default function BranchingVideoGame() {
     setChoicesVisible(true);
     const options = sceneId === "intro"
       ? [
-          { id: "meadow", label: "Follow the light", hint: "Take the open trail" },
-          { id: "forest", label: "Enter the woods", hint: "Trust your instinct" },
+          { id: "meadow", label: "將女戶主的呻吟聲錄底", hint: "" },
+          { id: "forest", label: "安靜怕羞地等女戶主出來", hint: "" },
         ]
       : [
           { id: "restart", label: "Replay this path", hint: "Look for another clue" },
