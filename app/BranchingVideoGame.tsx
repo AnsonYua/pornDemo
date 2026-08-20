@@ -18,11 +18,13 @@ export default function BranchingVideoGame() {
   const [started, setStarted] = useState(false);
   const [muted, setMuted] = useState(true);
   const [needsResume, setNeedsResume] = useState(false);
+  const [choicesVisible, setChoicesVisible] = useState(false);
 
   const playScene = useCallback(async (next: SceneId, restart = false) => {
     const video = videoRef.current;
     if (!video) return;
     shownForRef.current = null;
+    setChoicesVisible(false);
     window.dispatchEvent(new CustomEvent("wildpath:hide-choices"));
     if (next !== sceneId) setSceneId(next);
     if (restart || next === sceneId) {
@@ -234,6 +236,7 @@ export default function BranchingVideoGame() {
     if (!video || !started || !Number.isFinite(video.duration)) return;
     if (video.duration - video.currentTime > 2.7 || shownForRef.current === sceneId) return;
     shownForRef.current = sceneId;
+    setChoicesVisible(true);
     const options = sceneId === "intro"
       ? [
           { id: "meadow", label: "Follow the light", hint: "Take the open trail" },
@@ -270,6 +273,7 @@ export default function BranchingVideoGame() {
         onEnded={onTimeUpdate}
         aria-label="Interactive story video"
       />
+      {choicesVisible && <div className="choice-grade" aria-hidden="true" />}
       <div ref={mountRef} className="phaser-layer" aria-label="Game choices" />
 
       <div className="top-controls">
