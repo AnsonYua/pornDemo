@@ -238,7 +238,7 @@ export default function BranchingVideoGame() {
   const onTimeUpdate = () => {
     const video = videoRef.current;
     if (!video || !started || !Number.isFinite(video.duration)) return;
-    const choiceTime = sceneId === "intro" ? 16.5 : video.duration - 2.7;
+    const choiceTime = sceneId === "intro" ? video.duration : video.duration - 2.7;
     if (video.currentTime < choiceTime || shownForRef.current === sceneId) return;
     shownForRef.current = sceneId;
     setChoicesVisible(true);
